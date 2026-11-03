@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import {
   Search,
   Filter,
@@ -233,7 +233,7 @@ export function MistakeTableView({
                   const statusConfig = REVIEW_STATUSES.find(s => s.id === item.reviewStatus);
 
                   return (
-                    <React.Fragment key={item.id}>
+                    <Fragment key={item.id}>
                       <tr className={clsx(
                         'hover:bg-surface/30 transition-colors group',
                         isExpanded && 'bg-surface/40',
@@ -467,7 +467,7 @@ export function MistakeTableView({
                           </td>
                         </tr>
                       )}
-                    </React.Fragment>
+                    </Fragment>
                   );
                 })
               )}
