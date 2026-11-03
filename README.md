@@ -1,93 +1,93 @@
-# SAT Error Log Assistant 📚
+# SAT Mistake Intelligence System 🎯🧠
 
-A sleek, dark-themed web app that uses **Gemini AI vision** to automatically parse SAT practice test images/PDFs, extract error data, and let you review, edit, and export a structured error log.
+A full-stack, cognitive diagnostic platform for the **Digital SAT** (Math and Reading & Writing) powered by **Gemini AI Vision & Reasoning**.
 
-## Features
+Rather than simply recording incorrect answers, this system diagnoses **WHY** you got each question wrong, detects cognitive misconceptions, flags adaptive **Module 1 vs Module 2 collapse**, calculates an evidence-based **Ranked Weakness Matrix**, prescribes **Personalized 3-Priority Study Actions**, and provides an interactive **Smart Retest Studio** and an **AI SAT Tutor Chatbot**.
 
-- 🖼️ **Drag & Drop Upload** — PDF, PNG, JPG, WebP support with live thumbnail previews
-- 🤖 **Gemini AI Extraction** — Automatically identifies question number, section, correct/selected answer, domain, root cause, and takeaway
-- ✏️ **Editable Review Table** — Inline editing, tag system, expand for full notes
-- 📊 **Stats Dashboard** — Error count by section and root cause
-- 📥 **CSV Export** — One-click download or clipboard copy
-- 🟢 **Google Sheets Push** — OAuth2 integration to append rows directly to your sheet
+---
 
-## Quick Start
+## 🌟 Core Architectural Features
 
-### 1. Clone & Install
+### 1. 📋 Cognitive Error Recording & Fast Data Entry
+- **Dual-Channel Input**:
+  - **Upload Screenshot / PDF**: Gemini 2.5 Vision automatically OCRs and extracts the question text, options A-D, your answer, the correct answer, tested domain/topic, root cause, and step-by-step resolution.
+  - **Fast Manual Entry**: Quick form with autocomplete dropdowns for all official SAT domains, topics, difficulty levels (Easy/Medium/Hard), time spent (stopwatch/seconds), and root cause reflections.
+  - **✨ In-Modal AI Auto-Diagnosis**: Type a question, click one button, and Gemini immediately populates the concept tested, root cause, misconceptions, and takeaway.
 
-```bash
-git clone <repo-url>
-cd SAT
-npm install
-```
+### 2. 🧠 Intelligent Error Classification (8 Standard Categories)
+1. **Knowledge Gap** — Missing formula, rule, or vocabulary definition.
+2. **Application Error** — Understood the rule in theory, but failed to apply it to the scenario.
+3. **Misreading** — Missed prompt constraints (e.g. solved for $x$ instead of $2x+1$, missed "not", overlooked units).
+4. **Calculation Error** — Sign slip ($+/-$), arithmetic, or calculator miskey.
+5. **Time Management** — Rushed due to low time, or panicked after spending too long earlier.
+6. **Careless Execution** — Unforced attention lapse or bubble selection error.
+7. **Guessing** — No clear approach or ran out of time.
+8. **Conceptual Misunderstanding** — Flawed mental model of the tested principle.
 
-### 2. Configure API Keys
+### 3. 📊 Performance & Adaptive Module Analytics
+- **Module 1 vs Module 2 Adaptive Comparison**:
+  - Automatically compares accuracy between Module 1 and Module 2.
+  - Detects **Adaptive Module 2 Performance Drop** (>15% gap) when higher-difficulty questions and pacing stress cause unforced errors.
+- **Section Split**: Math vs Reading & Writing accuracy breakdown.
+- **Root Cause Distribution**: Interactive horizontal breakdown across all 8 error categories.
+- **Topic Accuracy Matrix**: Full tracking of total logged, resolved, and recurring mistakes.
+- **Statistical Confidence Safeguard**: Displays preliminary indicators when fewer than 5 questions are logged to prevent misleading conclusions.
 
-```bash
-cp .env.example .env
-```
+### 4. 🎯 Weakness Detection Engine & Weighted Matrix
+- **Evidence-Based Severity Formula**:
+  $$\text{Score} = (\text{Unresolved} \times 2.0) + (\text{Repeated} \times 3.5) + (\text{Hard} \times 1.5) + (\text{Rule Application} \times 2.0) + (\text{Rushing} \times 1.5)$$
+- Prevents single isolated questions from distorting rankings.
+- Ranks topics by **Critical**, **High**, and **Moderate** severity.
 
-Edit `.env` and add your keys:
+### 5. 💡 Personalized AI Study Prescription
+- **Top 3 High-Leverage Weaknesses** with diagnosed cognitive patterns.
+- **Actionable Corrective Drills** tied directly to actual mistakes.
+- **Suggested Focus for Your Next Study Session**.
+- Direct links to re-attempt questions related to each weakness.
 
-```env
-# Required — get from https://aistudio.google.com/app/apikey
-VITE_GEMINI_API_KEY=your_key_here
+### 6. 🔄 Smart Review System & Retest Studio
+- **Rigorous Resolution Rule**: A mistake only graduates to **"Fixed ✓"** after you successfully solve it independently!
+- **Interactive Retest Session Mode**:
+  - Hides previous answers and explanations.
+  - Features an active elapsed-time stopwatch.
+  - Interactive choice selection (A, B, C, D).
+  - Immediate outcome validation:
+    - If correct: Automatically promoted to **"Fixed ✓"** with celebration and logged in `retestHistory`.
+    - If incorrect: Flagged as a critical **"Repeated Mistake ⚠"** with full AI diagnostic review.
 
-# Optional — for Google Sheets push
-VITE_GOOGLE_CLIENT_ID=your_client_id.apps.googleusercontent.com
-```
+### 7. 🤖 "Socrates-SAT" Contextual AI Chatbot
+- Connected directly to your actual error log database and metrics.
+- One-click prompt shortcuts:
+  - *"Why do I keep getting these questions wrong?"*
+  - *"What is my biggest weakness right now?"*
+  - *"Why is my Module 2 performance worse than Module 1?"*
+  - *"What should I study today?"*
+  - *"Show me my repeated mistakes and how to fix them."*
+  - *"Give me a similar practice question for my weakest topic."*
 
-### 3. Run
+### 8. 🎨 UX & Theme Design
+- **Dark Mode (Obsidian & Gold)** and **Light Mode (Clean Academic Ivory & Slate)** with seamless one-click toggle.
+- Clean typography (Inter & JetBrains Mono).
+- Persistent data storage via LocalStorage with full **JSON Import / Export Backup** and **CSV / Google Sheets Export**.
 
+---
+
+## 🚀 Quick Start
+
+### 1. Requirements
+- Node.js 18+ installed.
+
+### 2. Run the Application
 ```bash
 npm run dev
 ```
+Open **[http://localhost:5173](http://localhost:5173)** in your browser.
 
-Open [http://localhost:5173](http://localhost:5173)
+The system comes pre-loaded with a realistic SAT diagnostic seed dataset across both Math and Reading & Writing so you can explore all features right away. You can reset to demo data or clear everything anytime from the footer.
 
----
-
-## Google Sheets Setup (Optional)
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project (or use existing)
-3. Enable **Google Sheets API** and **Google Drive API**
-4. Create **OAuth 2.0 Client ID** credentials (Web application type)
-5. Add `http://localhost:5173` to **Authorized JavaScript Origins**
-6. Copy the Client ID to your `.env`
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Framework | React 18 + Vite |
-| Styling | Tailwind CSS 3 |
-| AI Vision | Gemini 1.5 Flash |
-| PDF Parsing | PDF.js |
-| Sheets Auth | Google Identity Services |
-| Icons | Lucide React |
-
-## Extracted Fields
-
-| Field | Description |
-|-------|-------------|
-| Question Number | Q# from the test |
-| Section | Math or Reading & Writing |
-| Question Summary | Brief description of the prompt |
-| Correct Answer | A / B / C / D |
-| Selected Answer | What you chose |
-| Domain | High-level SAT content area |
-| Specific Topic | Sub-skill (e.g. "Linear equations") |
-| Root Cause | Careless Error, Concept Breakdown, etc. |
-| Explanation | AI-generated takeaway / correct approach |
-| Tags | Custom labels you add |
-| Notes | Personal study notes |
-
-## Build for Production
-
-```bash
-npm run build
-npm run preview
+### 3. API Key Configuration
+Your Gemini API key is configured in `.env`:
+```env
+VITE_GEMINI_API_KEY=your_key_here
 ```
+The system uses `gemini-2.5-flash` with automatic fallback to `gemini-flash-latest`.

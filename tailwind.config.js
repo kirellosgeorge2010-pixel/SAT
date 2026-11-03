@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,41 +8,39 @@ export default {
   theme: {
     extend: {
       colors: {
-        base: '#0f0f0f',
-        surface: '#1a1a1a',
-        card: '#222222',
-        border: '#2e2e2e',
+        base: 'var(--color-base)',
+        surface: 'var(--color-surface)',
+        card: 'var(--color-card)',
+        border: 'var(--color-border)',
         gold: {
-          DEFAULT: '#c9a84c',
-          light: '#e4c97a',
-          dark: '#9e7d30',
-          muted: '#c9a84c33',
+          DEFAULT: 'var(--color-gold)',
+          light: 'var(--color-gold-light)',
+          dark: 'var(--color-gold-dark)',
+          muted: 'var(--color-gold-muted)',
         },
         burgundy: {
-          DEFAULT: '#7b2d42',
-          light: '#a33a57',
-          dark: '#5a1f30',
-          muted: '#7b2d4233',
+          DEFAULT: 'var(--color-burgundy)',
+          light: 'var(--color-burgundy-light)',
+          dark: 'var(--color-burgundy-dark)',
+          muted: 'var(--color-burgundy-muted)',
         },
         text: {
-          primary: '#f0ead6',
-          secondary: '#c8bfa0',
-          muted: '#8a8a8a',
-          dim: '#555555',
+          primary: 'var(--color-text-primary)',
+          secondary: 'var(--color-text-secondary)',
+          muted: 'var(--color-text-muted)',
+          dim: 'var(--color-text-dim)',
         },
-        success: '#4ade80',
-        error: '#f87171',
-        warning: '#fbbf24',
+        success: '#10b981',
+        error: '#ef4444',
+        warning: '#f59e0b',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       animation: {
-        'spin-slow': 'spin 2s linear infinite',
-        'fade-in': 'fadeIn 0.3s ease-in-out',
-        'slide-up': 'slideUp 0.3s ease-out',
-        'pulse-gold': 'pulseGold 2s ease-in-out infinite',
+        'fade-in': 'fadeIn 0.2s ease-in-out',
+        'slide-up': 'slideUp 0.25s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -49,19 +48,9 @@ export default {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '0%': { opacity: '0', transform: 'translateY(8px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        pulseGold: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(201,168,76,0)' },
-          '50%': { boxShadow: '0 0 0 6px rgba(201,168,76,0.15)' },
-        },
-      },
-      backgroundImage: {
-        'grid-pattern': "linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px)",
-      },
-      backgroundSize: {
-        'grid': '32px 32px',
       },
     },
   },
