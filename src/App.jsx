@@ -349,17 +349,30 @@ export default function App() {
       {/* ── Main Content Area ──────────────────────────────────────────────── */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full space-y-6">
         {geminiError && (
-          <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center justify-between gap-3 animate-slide-up">
+          <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex flex-wrap items-center justify-between gap-3 animate-slide-up">
             <div className="flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4 flex-shrink-0" />
-              <span>{geminiError}</span>
+              <AlertTriangle className="w-4 h-4 flex-shrink-0 text-rose-400" />
+              <span>
+                {geminiError.includes('leaked') || geminiError.includes('403') || geminiError.includes('PERMISSION_DENIED')
+                  ? 'Your Google API key was reported as leaked/revoked. Please generate a fresh key from Google AI Studio and enter it below.'
+                  : geminiError}
+              </span>
             </div>
-            <button
-              onClick={() => window.location.reload()}
-              className="text-gold underline hover:text-gold-light"
-            >
-              Retry
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setIsApiKeyModalOpen(true)}
+                className="btn-primary text-xs py-1 px-3 flex items-center gap-1.5"
+              >
+                <Key className="w-3.5 h-3.5" />
+                Update API Key
+              </button>
+              <button
+                onClick={() => window.location.reload()}
+                className="text-text-muted hover:text-text-primary underline text-xs"
+              >
+                Dismiss
+              </button>
+            </div>
           </div>
         )}
 

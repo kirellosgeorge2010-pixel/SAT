@@ -6,10 +6,9 @@
 
 const PRIMARY_MODEL = 'gemini-2.5-flash';
 const FALLBACK_MODEL = 'gemini-flash-latest';
-const DEFAULT_KEY = 'AIzaSyDx679_LcYVJZSf0-BgWtnWJGI88vsuS2Q';
 
 /**
- * Resolves the effective API key from localStorage, Vite env, or default fallback.
+ * Resolves the effective API key from localStorage or Vite env.
  */
 export function getEffectiveApiKey() {
   try {
@@ -24,7 +23,7 @@ export function getEffectiveApiKey() {
     return envKey.trim();
   }
 
-  return DEFAULT_KEY;
+  return '';
 }
 
 /**
